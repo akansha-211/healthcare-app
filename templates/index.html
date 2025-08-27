@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center py-5 bg-light">
+    <h1 class="display-4">Welcome to Your Personal Health Assistant</h1>
+    <p class="lead">Track your health, diet, exercise, and more in one place</p>
+    <a href="/login" class="btn btn-primary btn-lg">Get Started</a>
+</div>
+
+<div class="features row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Diet Plans</h5>
+                <p class="card-text">Customized diet plans based on your health profile.</p>
+                <a href="/diet" class="btn btn-outline-primary">View Diet</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Exercise Routines</h5>
+                <p class="card-text">Personalized exercise recommendations.</p>
+                <a href="/exercise" class="btn btn-outline-primary">View Exercises</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Health Tracking</h5>
+                <p class="card-text">Monitor your health metrics over time.</p>
+                <a href="/health-details" class="btn btn-outline-primary">View Health</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

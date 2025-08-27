@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Prescriptions - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Your Prescriptions</h2>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Current Medications</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Medication</th>
+                            <th>Dosage</th>
+                            <th>Frequency</th>
+                            <th>Prescribed On</th>
+                            <th>Refills</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Amoxicillin</td>
+                            <td>500mg</td>
+                            <td>Twice daily</td>
+                            <td>2023-06-10</td>
+                            <td>0</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Lisinopril</td>
+                            <td>10mg</td>
+                            <td>Once daily</td>
+                            <td>2023-01-15</td>
+                            <td>3</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ibuprofen</td>
+                            <td>200mg</td>
+                            <td>As needed</td>
+                            <td>2022-11-20</td>
+                            <td>5</td>
+                            <td><span class="badge bg-warning text-dark">Expires soon</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5>Request Refill</h5>
+                </div>
+                <div class="card-body">
+                    <form id="refillRequest">
+                        <div class="mb-3">
+                            <label class="form-label">Select Medication</label>
+                            <select class="form-select">
+                                <option>Amoxicillin 500mg</option>
+                                <option>Lisinopril 10mg</option>
+                                <option>Ibuprofen 200mg</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Pharmacy</label>
+                            <select class="form-select">
+                                <option>Main Street Pharmacy</option>
+                                <option>City Health Pharmacy</option>
+                                <option>24-Hour Drugstore</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Refill</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>Medication History</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>Amoxicillin</strong> - Completed on 2023-03-15
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>Prednisone</strong> - Completed on 2022-09-10
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>Azithromycin</strong> - Completed on 2022-05-22
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

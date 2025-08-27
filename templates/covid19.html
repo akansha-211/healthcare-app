@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}COVID-19 Information - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">COVID-19 Resources</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5>COVID-19 Assessment</h5>
+                </div>
+                <div class="card-body">
+                    <form id="covidAssessment">
+                        <div class="mb-3">
+                            <label class="form-label">Do you have a fever?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fever" id="feverYes">
+                                <label class="form-check-label" for="feverYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fever" id="feverNo">
+                                <label class="form-check-label" for="feverNo">No</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Do you have a cough?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cough" id="coughYes">
+                                <label class="form-check-label" for="coughYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cough" id="coughNo">
+                                <label class="form-check-label" for="coughNo">No</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Have you been exposed to someone with COVID-19?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exposure" id="exposureYes">
+                                <label class="form-check-label" for="exposureYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exposure" id="exposureNo">
+                                <label class="form-check-label" for="exposureNo">No</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Assess Risk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h5>Testing Locations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>City Health Center</strong><br>
+                            123 Main St, Anytown<br>
+                            Open: Mon-Fri 8am-5pm
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>Community Hospital</strong><br>
+                            456 Oak Ave, Anytown<br>
+                            Open: Daily 7am-7pm
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <strong>Pharmacy Drive-Thru</strong><br>
+                            789 Elm St, Anytown<br>
+                            Open: Mon-Sat 9am-6pm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <h5>Vaccination Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>First Dose</h6>
+                            <p>Date: 2023-03-15</p>
+                            <p>Location: City Health Center</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Second Dose</h6>
+                            <p>Date: 2023-04-05</p>
+                            <p>Location: City Health Center</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Booster Shot</h6>
+                            <p>Not yet received</p>
+                            <a href="#" class="btn btn-sm btn-primary">Schedule Booster</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h5>Latest Guidelines</h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Wash hands frequently with soap and water</li>
+                <li class="list-group-item">Wear a mask in crowded indoor settings</li>
+                <li class="list-group-item">Maintain at least 6 feet distance from others</li>
+                <li class="list-group-item">Stay home if you feel unwell</li>
+                <li class="list-group-item">Get tested if you experience symptoms</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

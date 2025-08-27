@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Medicine Delivery - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Medicine Delivery Service</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Schedule Delivery</h5>
+                </div>
+                <div class="card-body">
+                    <form id="deliveryForm">
+                        <div class="mb-3">
+                            <label class="form-label">Select Medication</label>
+                            <select class="form-select">
+                                <option>Amoxicillin 500mg</option>
+                                <option>Lisinopril 10mg</option>
+                                <option>Ibuprofen 200mg</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Delivery Address</label>
+                            <textarea class="form-control" rows="3">123 Main St, Anytown, USA</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Delivery Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Delivery Time</label>
+                            <select class="form-select">
+                                <option>Morning (9am-12pm)</option>
+                                <option>Afternoon (12pm-4pm)</option>
+                                <option>Evening (4pm-8pm)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Schedule Delivery</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5>Delivery Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Amoxicillin 500mg</h6>
+                                <span class="badge bg-success">Delivered</span>
+                            </div>
+                            <p class="mb-1">Delivered on June 12, 2023 at 2:15 PM</p>
+                            <small>123 Main St, Anytown, USA</small>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Lisinopril 10mg</h6>
+                                <span class="badge bg-warning text-dark">Scheduled</span>
+                            </div>
+                            <p class="mb-1">Scheduled for June 20, 2023 (Morning)</p>
+                            <small>123 Main St, Anytown, USA</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>Delivery Partners</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <img src="https://via.placeholder.com/150x60?text=PharmaExpress" class="img-fluid" alt="PharmaExpress">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="https://via.placeholder.com/150x60?text=MedQuick" class="img-fluid" alt="MedQuick">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://via.placeholder.com/150x60?text=HealthDeliver" class="img-fluid" alt="HealthDeliver">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://via.placeholder.com/150x60?text=RxToYou" class="img-fluid" alt="RxToYou">
+                        </div>
+                    </div

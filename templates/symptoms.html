@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Symptoms Assessment - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">New Symptoms Assessment</h2>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Select Your Symptoms</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Fever</h6>
+                            <p>Temperature above 38°C (100.4°F)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Cough</h6>
+                            <p>Persistent dry or productive cough</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Shortness of Breath</h6>
+                            <p>Difficulty breathing or catching breath</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Fatigue</h6>
+                            <p>Unusual tiredness or weakness</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Headache</h6>
+                            <p>Persistent or severe headache</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="symptom-card card mb-3">
+                        <div class="card-body">
+                            <h6>Muscle Aches</h6>
+                            <p>Body or muscle pain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h5>Additional Information</h5>
+        </div>
+        <div class="card-body">
+            <form id="symptomForm">
+                <div class="mb-3">
+                    <label class="form-label">Symptom Duration</label>
+                    <select class="form-select">
+                        <option>Less than 24 hours</option>
+                        <option>1-3 days</option>
+                        <option>4-7 days</option>
+                        <option>More than 1 week</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Severity</label>
+                    <select class="form-select">
+                        <option>Mild</option>
+                        <option>Moderate</option>
+                        <option>Severe</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Additional Notes</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Assessment</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <h5>Assessment Results</h5>
+        </div>
+        <div class="card-body">
+            <div id="assessmentResult" class="text-center py-4">
+                <p class="lead">Your assessment results will appear here after submission.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

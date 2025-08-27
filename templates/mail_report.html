@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Mail Report - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Mail Health Report</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Send Health Report</h5>
+                </div>
+                <div class="card-body">
+                    <form id="reportForm">
+                        <div class="mb-3">
+                            <label class="form-label">Select Report</label>
+                            <select class="form-select">
+                                <option>Complete Health Summary</option>
+                                <option>Medication History</option>
+                                <option>Lab Test Results</option>
+                                <option>Vaccination Records</option>
+                                <option>Recent Doctor Visits</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" value="user@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Additional Recipients (optional)</label>
+                            <input type="email" class="form-control" placeholder="doctor@clinic.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message (optional)</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input

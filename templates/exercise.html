@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Exercise Plans - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Your Exercise Routine</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Weekly Plan</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Activity</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>Cardio</td>
+                                <td>30 mins</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>Strength Training</td>
+                                <td>45 mins</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>Yoga</td>
+                                <td>60 mins</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Walking</td>
+                                <td>60 mins</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5>Exercise Videos</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Beginner Cardio Workout</a>
+                        <a href="#" class="list-group-item list-group-item-action">Full Body Strength</a>
+                        <a href="#" class="list-group-item list-group-item-action">Yoga for Flexibility</a>
+                        <a href="#" class="list-group-item list-group-item-action">Stretching Routine</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>Track Your Workout</h5>
+                </div>
+                <div class="card-body">
+                    <form id="workoutTracker">
+                        <div class="mb-3">
+                            <label class="form-label">Exercise Type</label>
+                            <select class="form-select">
+                                <option>Cardio</option>
+                                <option>Strength Training</option>
+                                <option>Yoga</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Duration (minutes)</label>
+                            <input type="number" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Notes</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log Workout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

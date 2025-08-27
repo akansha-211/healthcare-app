@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment History - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Your Assessment History</h2>
+    
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Past Assessments</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Symptoms</th>
+                            <th>Severity</th>
+                            <th>Recommendation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-06-15</td>
+                            <td>Fever, Headache</td>
+                            <td>Moderate</td>
+                            <td>Rest and hydration</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-05-28</td>
+                            <td>Cough, Fatigue</td>
+                            <td>Mild</td>
+                            <td>Monitor symptoms</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-04-10</td>
+                            <td>Muscle Aches</td>
+                            <td>Mild</td>
+                            <td>Over-the-counter pain relief</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h5>Health Trends</h5>
+        </div>
+        <div class="card-body">
+            <canvas id="healthTrendsChart" width="100%" height="300"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+// This would be replaced with actual chart initialization
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Chart initialization would go here');
+});
+</script>
+{% endblock %}

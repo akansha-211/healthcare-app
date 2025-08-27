@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Diet Plans - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Your Personalized Diet Plans</h2>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5>Balanced Diet</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Daily Plan</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Breakfast: Whole grain toast with avocado</li>
+                        <li class="list-group-item">Lunch: Grilled chicken with quinoa</li>
+                        <li class="list-group-item">Dinner: Baked salmon with vegetables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>Weight Loss</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Daily Plan</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Breakfast: Greek yogurt with berries</li>
+                        <li class="list-group-item">Lunch: Salad with lean protein</li>
+                        <li class="list-group-item">Dinner: Vegetable stir-fry with tofu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5>Muscle Gain</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Daily Plan</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Breakfast: Protein smoothie with oats</li>
+                        <li class="list-group-item">Lunch: Brown rice with chicken and veggies</li>
+                        <li class="list-group-item">Dinner: Steak with sweet potatoes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5>Customize Your Diet</h5>
+        </div>
+        <div class="card-body">
+            <form id="dietPreferences">
+                <div class="mb-3">
+                    <label class="form-label">Dietary Restrictions</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="vegetarian">
+                        <label class="form-check-label" for="vegetarian">Vegetarian</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="vegan">
+                        <label class="form-check-label" for="vegan">Vegan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="glutenFree">
+                        <label class="form-check-label" for="glutenFree">Gluten Free</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Preferences</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

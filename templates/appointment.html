@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}Appointments - Healthcare App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Manage Appointments</h2>
+    
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Upcoming Appointments</h5>
+                </div>
+                <div class="card-body">
+                    {% if appointments %}
+                    <div class="list-group">
+                        {% for appt in appointments %}
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Dr. {{ appt.doctor_name }} - {{ appt.specialty }}</h6>
+                                <span class="badge bg-{{ 'success' if appt.confirmed else 'warning text-dark' }}">
+                                    {{ 'Confirmed' if appt.confirmed else 'Pending' }}
+                                </span>
+                            </div>
+                            <p class="mb-1"><strong>{{ appt.date }} at {{ appt.time }}</strong></p>
+                            <p class="mb-1">{{ appt.location }}</p>
+                            <small>Reason: {{ appt.reason }}</small>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary me-2">Reschedule</button>
+                                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <p class="lead">You have no upcoming appointments</p>
+                        <a href="#schedule" class="btn btn-primary">Schedule New Appointment</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5>Appointment History</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Doctor</th>
+                                    <th>Specialty</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2023-06-10</td>
+                                    <td>Dr. Smith</td>
+                                    <td>Cardiology</td>
+                                    <td><span class="badge bg-secondary">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2023-05-22</td>
+                                    <td>Dr. Johnson</td>
+                                    <td>General Practice</td>
+                                    <td><span class="badge bg-secondary">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2023-04-15</td>
+                                    <td>Dr. Lee</td>
+                                    <td>Dermatology</td>
+                                    <td><span class="badge bg-secondary">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+            <div class="card sticky-top" style="top: 20px;">
+                <div class="card-header bg-success text-white" id="schedule">
+                    <h5>Schedule New Appointment</h5>
+                </div>
+                <div class="card-body">
+                    <form id="appointmentForm">
+                        <div class="mb-3">
+                            <label class="form-label">Appointment Type</label>
+                            <select class="form-select" id="appointmentType">
+                                <option value="">Select type</option>
+                                <option value="checkup">Regular Checkup</option>
+                                <option value="followup">Follow-up Visit</option>
+                                <option value="urgent">Urgent Care</option>
+                                <option value="vaccination">Vaccination</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Specialty</label>
+                            <select class="form-select" id="specialty">
+                                <option value="">Select specialty</option>
+                                <option value="general">General Practice</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="neurology">Neurology</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Doctor</label>
+                            <select class="form-select" id="doctor">
+                                <option value="">Any available doctor</option>
+                                <option value="smith">Dr. Smith</option>
+                                <option value="johnson">Dr. Johnson</option>
+                                <option value="lee">Dr. Lee</option>
+                                <option value="garcia">Dr. Garcia</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="appointmentDate" min="{{ min_date }}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Time</label>
+                            <select class="form-select" id="appointmentTime">
+                                <option value="">Any available time</option>
+                                <option value="morning">Morning (8am-12pm)</option>
+                                <option value="afternoon">Afternoon (12pm-4pm)</option>
+                                <option value="evening">Evening (4pm-7pm)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Reason for Visit</label>
+                            <textarea class="form-control" id="reason" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="urgent">
+                            <label class="form-check-label" for="urgent">This is an urgent matter</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Request Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('appointmentDate').min = today;
+    
+    // Form submission
+    const form = document.getElementById('appointmentForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const type = document.getElementById('appointmentType').value;
+            const specialty = document.getElementById('specialty').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            const reason = document.getElementById('reason').value;
+            const urgent = document.getElementById('urgent').checked;
+            
+            // Here you would typically send this data to the server
+            console.log('Appointment requested:', {
+                type, specialty, doctor, date, time, reason, urgent
+            });
+            
+            // Show success message (in a real app, this would be after server response)
+            alert('Your appointment request has been submitted. You will receive a confirmation soon.');
+            form.reset();
+        });
+    }
+    
+    // Dynamic doctor loading based on specialty
+    const specialtySelect = document.getElementById('specialty');
+    if (specialtySelect) {
+        specialtySelect.addEventListener('change', function() {
+            const specialty = this.value;
+            const doctorSelect = document.getElementById('doctor');
+            
+            // Clear existing options except first
+            while (doctorSelect.options.length > 1) {
+                doctorSelect.remove(1);
+            }
+            
+            // Add doctors based on specialty
+            if (specialty === 'general') {
+                addDoctorOption('Dr. Johnson', 'johnson');
+                addDoctorOption('Dr. Wilson', 'wilson');
+            } else if (specialty === 'cardiology') {
+                addDoctorOption('Dr. Smith', 'smith');
+            } else if (specialty === 'dermatology') {
+                addDoctorOption('Dr. Lee', 'lee');
+                addDoctorOption('Dr. Chen', 'chen');
+            } else if (specialty === 'pediatrics') {
+                addDoctorOption('Dr. Garcia', 'garcia');
+                addDoctorOption('Dr. Patel', 'patel');
+            } else if (specialty === 'neurology') {
+                addDoctorOption('Dr. Brown', 'brown');
+            }
+        });
+    }
+    
+    function addDoctorOption(name, value) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = name;
+        document.getElementById('doctor').appendChild(option);
+    }
+});
+</script>
+
+<style>
+/* Additional styles for the appointment page */
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    font-size: 0.85em;
+    padding: 5px 10px;
+}
+
+.sticky-top {
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .sticky-top {
+        position: static;
+    }
+}
+</style>
+{% endblock %}
